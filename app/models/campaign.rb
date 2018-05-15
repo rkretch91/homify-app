@@ -1,5 +1,6 @@
 class Campaign < ApplicationRecord
   belongs_to :user
+  has_many :todos
 
   validates :title, presence: true
   validates :tags, presence: true
