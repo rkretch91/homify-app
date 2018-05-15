@@ -22,8 +22,9 @@ class UserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     username: Field::String,
-    status: Field::String,
-    type: Field::String,
+    status: Field::Select.with_options(collection: [:novice, :expert]),
+    expertise: Field::Select.with_options(collection: [:qualified, :not_qualified,
+:banned]),
     profession: Field::String,
     service: Field::String,
   }.freeze
@@ -58,7 +59,7 @@ class UserDashboard < Administrate::BaseDashboard
     :updated_at,
     :username,
     :status,
-    :type,
+    :expertise,
     :profession,
     :service,
   ].freeze
@@ -79,7 +80,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :username,
     :status,
-    :type,
+    :expertise,
     :profession,
     :service,
   ].freeze
