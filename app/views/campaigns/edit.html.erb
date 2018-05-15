@@ -1,0 +1,7 @@
+<h2>Edit Your Campaign!</h2>
+<%= simple_form_for @campaign do |c| %>
+  <%= c.input :title, label: "Title" %>
+  <%= c.input :tags, label: "Tags", placeholder: "Put tags in here separated by commas" %>
+  <%= c.input :estimated_duration, label: "How many months is the anticipated campaign?" %>
+  <%= c.button :submit, class:"btn-add" %>
+<% end %>
