@@ -22,9 +22,9 @@ class UserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     username: Field::String,
-    status: Field::Select.with_options(collection: [:novice, :expert]),
-    expertise: Field::Select.with_options(collection: [:qualified, :not_qualified,
+    status: Field::Select.with_options(collection: [:qualified, :not_qualified,
 :banned]),
+    expertise: Field::Select.with_options(collection: [:novice, :expert]),
     profession: Field::String,
     service: Field::String,
   }.freeze
