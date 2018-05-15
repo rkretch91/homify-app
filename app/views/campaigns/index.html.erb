@@ -1,0 +1,9 @@
+<% @campaigns.each do |campaign| %>
+  <%= link_to campaign_path(campaign) do %>
+    <p><%= campaign.title %></p>
+    <p><%= campaign.tags %></p>
+    <p><%= campaign.estimated_duration.to_s + " Months" %></p>
+  <% end %>
+<% end %>
+
+<%= link_to "New Campaign", new_campaign_path %>
