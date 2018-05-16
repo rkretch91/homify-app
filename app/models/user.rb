@@ -6,6 +6,7 @@ class User < ApplicationRecord
   after_create :set_default_expertise
   has_many :campaigns
   has_many :todos
+  has_many :comments
   # or
   # before_validation :set_default_role
 
