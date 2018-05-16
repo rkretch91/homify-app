@@ -1,0 +1,5 @@
+<h2>Make A Todo List!</h2>
+<%= simple_form_for @todo, url: campaign_todos_path do |t| %>
+  <%= t.input :items, label: "Todo List Items" %>
+  <%= t.button :submit, class:"btn-add" %>
+<% end %>
