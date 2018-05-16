@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516072220) do
+ActiveRecord::Schema.define(version: 20180516074109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20180516072220) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_campaigns_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "title"
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.bigint "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_comments_on_campaign_id"
+    t.index ["todo_id"], name: "index_comments_on_todo_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "todos", force: :cascade do |t|
@@ -58,6 +70,9 @@ ActiveRecord::Schema.define(version: 20180516072220) do
   end
 
   add_foreign_key "campaigns", "users"
+  add_foreign_key "comments", "campaigns"
+  add_foreign_key "comments", "todos"
+  add_foreign_key "comments", "users"
   add_foreign_key "todos", "campaigns"
   add_foreign_key "todos", "users"
 end

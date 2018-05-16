@@ -1,0 +1,14 @@
+<h2>Comment</h2>
+<% if params[:todo_id] %>
+  <%= simple_form_for [@parent, @comment], url: campaign_todo_comments_path do |c| %>
+    <%= c.input :title, label: "Put Your Comment Here" %>
+    <%= c.button :submit, class:"btn-add" %>
+  <% end %>
+<% elsif params[:campaign_id] %>
+  <%= simple_form_for [@parent, @comment], url: campaign_comments_path do |c| %>
+    <%= c.input :title, label: "Put Your Comment Here" %>
+    <%= c.button :submit, class:"btn-add" %>
+  <% end %>
+<% end %>
+
+
