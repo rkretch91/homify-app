@@ -1,14 +1,16 @@
-<%= @campaign.title %>
-<%= link_to "Add a Comment", new_campaign_comment_path(@campaign) %>
+<h2><%= @campaign.title %></h2>
+<p><%= link_to "Add a Comment", new_campaign_comment_path(@campaign) %></p>
 <% @campaign.comments.each do |c| %>
-  <%= c.title %>
+  <p><%= c.title %></p>
 <% end %>
+</br>
+<h3>To Do Lists</h3>
 <% @campaign.todos.each do |t| %>
-  <%= t.items %>
-  <%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %>
+  <p><%= t.items %></p>
+  <p><%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %></p>
   <% t.comments.each do |c| %>
-    <%= c.title %>
+    <p><%= c.title %></p>
   <% end %>
 <% end %>
 
-<%= link_to "Add a Todo List", new_campaign_todo_path(@campaign) %>
+<p><%= link_to "Add a Todo List", new_campaign_todo_path(@campaign) %></p>
