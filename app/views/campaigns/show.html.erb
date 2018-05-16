@@ -1,1 +1,5 @@
 <%= @campaign.title %>
+<% @campaign.todos.each do |t| %>
+  <%= t.items %>
+<% end %>
+
