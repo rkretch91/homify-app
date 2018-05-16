@@ -6,4 +6,6 @@
   <% end %>
 <% end %>
 
-<%= link_to "New Campaign", new_campaign_path %>
+<% if policy(Campaign).new? %>
+  <%= link_to "New Campaign", new_campaign_path %>
+<% end %>

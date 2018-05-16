@@ -7,7 +7,9 @@
 <h3>To Do Lists</h3>
 <% @campaign.todos.each do |t| %>
   <p><%= t.items %></p>
+  <% if t.user.expertise.include? "novice" %>
   <p><%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %></p>
+  <% end %>
   <% t.comments.each do |c| %>
     <p><%= c.title %></p>
   <% end %>
