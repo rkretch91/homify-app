@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+body {
+  background: #EADEDA;
+}
+.new-campaign-banner {
+  background-color: #D90368;
+  color: white;
+  text-align: center;
+  height: 70px;
+  p {
+    position: relative;
+    top: 25px;
+    color: white;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+.tags {
+  background: #D90368;
+  border-radius: 20px;
+  width: auto;
+}
+

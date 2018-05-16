@@ -1,18 +1,33 @@
-<h2><%= @campaign.title %></h2>
-<p><%= link_to "Add a Comment", new_campaign_comment_path(@campaign) %></p>
-<% @campaign.comments.each do |c| %>
-  <p><%= c.title %></p>
-<% end %>
-</br>
-<h3>To Do Lists</h3>
-<% @campaign.todos.each do |t| %>
-  <p><%= t.items %></p>
-  <% if t.user.expertise.include? "novice" %>
-  <p><%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %></p>
-  <% end %>
-  <% t.comments.each do |c| %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/random/1500x300'); height: 300px !important;">
+  <div class="banner-content">
+    <h1><%= @campaign.title %></h1>
+    <p class="tags"><%= @campaign.tags %></p>
+    <p><%= @campaign.estimated_duration.to_s + " Months" %></p>
+  </div>
+</div>
+<div class="comments-banner">
+  <p><%= link_to "Add a Comment", new_campaign_comment_path(@campaign) %></p>
+  <% @campaign.comments.each do |c| %>
     <p><%= c.title %></p>
   <% end %>
+</div>
+<div class="todo-banner">
+<p>To Do Lists</p>
+  <div class="row">
+<% @campaign.todos.each do |t| %>
+    <div class="col-xs-12 col-sm-4">
+  <div class="todo-card">
+    <p><%= t.items %></p>
+    <% if t.user.expertise.include? "novice" %>
+    <p><%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %></p>
+    <% end %>
+    <% t.comments.each do |c| %>
+      <p><%= c.title %></p>
+    </div>
+    <% end %>
+  </div>
+  </div>
 <% end %>
 
+</div>
 <p><%= link_to "Add a Todo List", new_campaign_todo_path(@campaign) %></p>

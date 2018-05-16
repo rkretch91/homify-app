@@ -1,11 +1,24 @@
-<% @campaigns.each do |campaign| %>
-  <%= link_to campaign_path(campaign) do %>
-    <p><%= campaign.title %></p>
-    <p><%= campaign.tags %></p>
-    <p><%= campaign.estimated_duration.to_s + " Months" %></p>
+<%= render 'shared/banner' %>
+<div class="row">
+  <% @campaigns.each do |campaign| %>
+  <div class="col-xs-12 col-sm-4">
+    <%= link_to campaign_path(campaign) do %>
+      <div class="card">
+        <div class="card-contents">
+          <h3><%= campaign.title %></h3>
+          <hr width="70%">
+          <p class="tags"><%= campaign.tags %></p>
+          <p><%= campaign.estimated_duration.to_s + " Months" %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <% end %>
-<% end %>
+</div>
 
-<% if policy(Campaign).new? %>
-  <%= link_to "New Campaign", new_campaign_path %>
-<% end %>
+
+<div class="new-campaign-banner">
+  <% if policy(Campaign).new? %>
+    <p><%= link_to "You are an Expert! Create a New Campaign", new_campaign_path %></p>
+  <% end %>
+</div>
