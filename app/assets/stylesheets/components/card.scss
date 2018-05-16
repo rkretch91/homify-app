@@ -1,0 +1,37 @@
+.card {
+  background: linear-gradient(135deg,
+                    rgba(0,0,0,.3) 0%,
+                    rgba(0,0,0,.8) 50%),
+    url('https://source.unsplash.com/random/250x200');
+  background-size: cover;
+  height: 200px;
+  margin: 20px 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  p h3 {
+    text-decoration: none;
+  }
+}
+
+.card-contents {
+  text-align: center;
+}
+
+.card-contents:hover {
+  p {
+    text-decoration: none;
+  }
+  h3 {
+    text-decoration: none;
+  }
+}
+
+
+.card:hover {
+  color: rgba(236, 0, 96, .5);
+  a p h3 {
+    text-decoration: none
+  }
+}
