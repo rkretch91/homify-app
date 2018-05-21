@@ -19,19 +19,16 @@
   text-align: center;
 }
 
-.card-contents:hover {
-  p {
-    text-decoration: none;
-  }
-  h3 {
-    text-decoration: none;
-  }
-}
-
 
 .card:hover {
-  color: rgba(236, 0, 96, .5);
-  a p h3 {
-    text-decoration: none
+  text-decoration: none !important;
+  color: #D90368;
+  h5 {
+    color: white !important;
   }
+
+}
+
+a:hover {
+  text-decoration: none;
 }
