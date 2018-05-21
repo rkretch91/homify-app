@@ -2,13 +2,14 @@
   <div class="banner-content">
     <h1><%= @campaign.title %></h1>
     <p class="tags"><%= @campaign.tags %></p>
-    <p><%= @campaign.estimated_duration.to_s + " Months" %></p>
+    <p>Length: <%= @campaign.estimated_duration.to_s + " Months" %></p>
   </div>
 </div>
 <div class="comments-banner">
   <p><%= link_to "Add a Comment", new_campaign_comment_path(@campaign) %></p>
   <% @campaign.comments.each do |c| %>
     <p><%= c.title %></p>
+    <h6 style="font-size: 10px">Created by:<%= c.user.username %> at <%= c.created_at %></h6>
   <% end %>
 </div>
 <div class="todo-banner">
@@ -16,7 +17,7 @@
   <div class="row">
 <% @campaign.todos.each do |t| %>
     <div class="col-xs-12 col-sm-4">
-  <div class="todo-card">
+  <div class="todo-card todo-card-corner">
     <p><%= t.items %></p>
     <% if t.user.expertise.include? "novice" %>
     <p><%= link_to "Add a Comment", new_campaign_todo_comment_path(@campaign, t) %></p>
